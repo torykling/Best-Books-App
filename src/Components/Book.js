@@ -21,7 +21,7 @@ export class Book extends Component {
       margin: "10px"
     };
     return (
-      <div>
+      <div style={bookContainerStyle}>
         <div style={divStyle}></div>
         <h1>{theBook.title}</h1>
         <h2>{theBook.author}</h2>
@@ -29,10 +29,11 @@ export class Book extends Component {
         <p>Rank: #{theBook.rank}</p>
         <p>isbn: {theBook.isbn}</p>
         <iframe
+          id="the_iframe"
           src={theBook.reviews}
           width="500px"
           height="300px"
-          frameborder="2px solid black"
+          frameBorder="2px solid black"
         ></iframe>
       </div>
     );
@@ -40,4 +41,7 @@ export class Book extends Component {
 }
 
 export default Book;
-// access params
+
+const bookContainerStyle = {
+  textAlign: "center"
+};

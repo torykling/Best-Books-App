@@ -20,5 +20,14 @@ export default function FictionBookList(props) {
     );
   });
   // console.log(bookList);
-  return <div className="container-fluid fiction-list">{bookList}</div>;
+  return <div style={containerStyle}>{bookList}</div>;
 }
+
+const containerStyle = {
+  width: "80%",
+  height: "300%",
+  display: "flex",
+  flexDirection: "row",
+  flexWrap: "wrap",
+  margin: "0 auto"
+};

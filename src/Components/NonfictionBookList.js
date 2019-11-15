@@ -18,5 +18,15 @@ export default function NonfictionBookList(props) {
       </div>
     );
   });
-  return <div class="container-fluid">{bookList}</div>;
+  return <div style={containerStyle}>{bookList}</div>;
 }
+
+const containerStyle = {
+  width: "80%",
+  height: "300%",
+  display: "flex",
+  flexDirection: "row",
+  flexWrap: "wrap",
+  margin: "0 auto",
+  textAlign: "center"
+};

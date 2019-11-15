@@ -4,11 +4,12 @@ import { Route, Link } from "react-router-dom";
 import FictionBookList from "./Components/FictionBookList";
 import NonfictionBookList from "./Components/NonfictionBookList";
 import Book from "./Components/Book";
+import OurBookList from "./Components/OurBookList";
 
 export class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { books: null };
+    this.state = { books: null, ourBooks: null };
   }
   home = () => {
     return (
@@ -26,14 +27,20 @@ export class App extends Component {
             Nonfiction Bestsellers
           </button>
         </Link>
-        <button className="btn btn-outline-secondary">
-          Our Book Collection
-        </button>
+        <Link to="/ourbooks">
+          <button
+            onClick={this.getOurBooks}
+            className="btn btn-outline-secondary"
+          >
+            Our Book Collection
+          </button>
+        </Link>
       </div>
     );
   };
   componentDidMount = () => {
     this.getFiction();
+    this.getOurBooks();
   };
   getFiction = () => {
     const url = "http://localhost:4000/fiction";
@@ -52,6 +59,16 @@ export class App extends Component {
       .then(res => {
         // console.log("success", res);
         this.setState({ books: res });
+      });
+  };
+  getOurBooks = () => {
+    const oururl = "http://localhost:4000/ourbooks";
+    fetch(oururl)
+      .then(res => res.json())
+      .then(res => {
+        console.log(res);
+        this.setState({ ourBooks: res });
+        console.log(this.state);
       });
   };
 
@@ -81,6 +98,12 @@ export class App extends Component {
         <Route
           path="/books/:id"
           render={routerProps => <Book {...routerProps} {...this.state} />}
+        />
+        <Route
+          path="/ourbooks"
+          render={routerProps => (
+            <OurBookList {...routerProps} {...this.state} />
+          )}
         />
       </div>
     );
