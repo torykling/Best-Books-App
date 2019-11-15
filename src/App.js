@@ -1,13 +1,17 @@
-import React from "react";
-import logo from "./logo.svg";
+import React, { Component } from "react";
 import "./App.css";
+import FictionButton from "./Components/FictionButton.js";
+import NonfictionButton from "./Components/NonfictionButton";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header"></header>
-    </div>
-  );
+export class App extends Component {
+  render() {
+    return (
+      <div>
+        <FictionButton />
+        <NonfictionButton />
+      </div>
+    );
+  }
 }
 
 export default App;
