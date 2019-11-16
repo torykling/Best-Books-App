@@ -4,6 +4,8 @@ import Post from "./Inputs/Post";
 import Put from "./Inputs/Put";
 import DeleteOne from "./Inputs/DeleteOne";
 import DeleteAll from "./Inputs/DeleteAll";
+import SearchByTitle from "./Inputs/SearchByTitle";
+import SearchByAuthor from "./Inputs/SearchByAuthor";
 
 export class OurBookList extends Component {
   constructor(props) {
@@ -42,11 +44,14 @@ export class OurBookList extends Component {
         <h2>Books recommended by users like you!</h2>
         <h5>Add a book here</h5>
         <Post />
-        <h5>Or update</h5>
+        <h5>Or update a book</h5>
         <Put />
         <h5>Delete a book</h5>
         <DeleteOne />
         <DeleteAll />
+        <h5>Search for a book on this list by title or author</h5>
+        <SearchByTitle />
+        <SearchByAuthor />
         <ul>{ourList}</ul>
       </div>
     );

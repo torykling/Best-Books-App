@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-export class SearchByTitle extends Component {
+export class SearchByAuthor extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "",
+      author: "",
       results: null
     };
     this.handleChange = this.handleChange.bind(this);
@@ -13,13 +13,13 @@ export class SearchByTitle extends Component {
   }
   handleChange = e => {
     e.preventDefault();
-    this.setState({ title: e.target.value });
+    this.setState({ author: e.target.value });
     console.log(this.state.title);
   };
   handleSubmit = e => {
     e.preventDefault();
     axios
-      .get("http://localhost:4000/ourbooks/title/" + this.state.title)
+      .get("http://localhost:4000/ourbooks/author/" + this.state.author)
       .then(res => {
         console.log(res);
         this.setState({ results: res.data });
@@ -42,8 +42,8 @@ export class SearchByTitle extends Component {
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
-            name="title"
-            placeholder="Search for a book title"
+            name="author"
+            placeholder="Search for an author"
             onChange={this.handleChange}
           ></input>
           <input type="submit" value="Search"></input>
@@ -54,4 +54,4 @@ export class SearchByTitle extends Component {
   }
 }
 
-export default SearchByTitle;
+export default SearchByAuthor;

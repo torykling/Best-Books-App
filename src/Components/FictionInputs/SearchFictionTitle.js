@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
-export class SearchByTitle extends Component {
+export class SearchFictionTitle extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -19,7 +20,7 @@ export class SearchByTitle extends Component {
   handleSubmit = e => {
     e.preventDefault();
     axios
-      .get("http://localhost:4000/ourbooks/title/" + this.state.title)
+      .get("http://localhost:4000/fiction/title/" + this.state.title)
       .then(res => {
         console.log(res);
         this.setState({ results: res.data });
@@ -30,10 +31,19 @@ export class SearchByTitle extends Component {
     let searchResult;
     if (this.state.results != null) {
       searchResult = this.state.results.map(index => {
+        let imageStyle = {
+          backgroundImage: `url(${index.bookImage})`,
+          backgroundSize: "cover",
+          backgroundPostion: "center",
+          backgroundRepeat: "no-repeat",
+          height: "300px",
+          width: "200px",
+          margin: "10px"
+        };
         return (
-          <li key={index._id}>
-            Title: {index.title} Author: {index.author}
-          </li>
+          <div style={imageStyle} key={index._id}>
+            <Link to={`/books/${index._id}`}>{index.title}</Link>
+          </div>
         );
       });
     }
@@ -48,10 +58,10 @@ export class SearchByTitle extends Component {
           ></input>
           <input type="submit" value="Search"></input>
         </form>
-        <ul>{searchResult}</ul>
+        {searchResult}
       </div>
     );
   }
 }
 
-export default SearchByTitle;
+export default SearchFictionTitle;

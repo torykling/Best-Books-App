@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import SearchFictionTitle from "./FictionInputs/SearchFictionTitle";
 
 export default function FictionBookList(props) {
   // console.log(props);
@@ -20,7 +21,12 @@ export default function FictionBookList(props) {
     );
   });
   // console.log(bookList);
-  return <div style={containerStyle}>{bookList}</div>;
+  return (
+    <div style={containerStyle}>
+      <SearchFictionTitle />
+      {bookList}
+    </div>
+  );
 }
 
 const containerStyle = {
