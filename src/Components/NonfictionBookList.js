@@ -3,7 +3,7 @@ import SearchNonfictionTitle from "./NonfictionInputs/SearchNonfictionTitle";
 import SearchNonfictionAuthor from "./NonfictionInputs/SearchNonfictionAuthor";
 import SearchNonfictionRank from "./NonfictionInputs/SearchNonfictionRank";
 import axios from "axios";
-
+import Book from "./Book";
 import React, { Component } from "react";
 
 export class NonfictionBookList extends Component {
@@ -38,16 +38,20 @@ export class NonfictionBookList extends Component {
         };
         return (
           <div style={imageStyle} key={index._id}>
-            <Link to={`/books/${index._id}`}>{index.title}</Link>
+            <Link style={bannerStyle} to={`/books/${index._id}`}>
+              {index.title}
+            </Link>
           </div>
         );
       });
     }
     return (
       <div style={containerStyle}>
-        <SearchNonfictionTitle />
-        <SearchNonfictionAuthor />
-        <SearchNonfictionRank />
+        <div style={containerStyle}>
+          <SearchNonfictionTitle />
+          <SearchNonfictionAuthor />
+          <SearchNonfictionRank />
+        </div>
         {bookList}
       </div>
     );
@@ -57,11 +61,17 @@ export class NonfictionBookList extends Component {
 export default NonfictionBookList;
 
 const containerStyle = {
-  width: "80%",
+  width: "100%",
   height: "300%",
   display: "flex",
   flexDirection: "row",
   flexWrap: "wrap",
-  margin: "0 auto",
+  margin: "10px",
   textAlign: "center"
+};
+const bannerStyle = {
+  display: "inline-block",
+  backgroundColor: "white",
+  minWidth: "200px",
+  width: "100%"
 };

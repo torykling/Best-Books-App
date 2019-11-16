@@ -28,10 +28,7 @@ export class App extends Component {
           </button>
         </Link>
         <Link to="/ourbooks">
-          <button
-            onClick={this.getOurBooks}
-            className="homeBtn btn btn-secondary"
-          >
+          <button className="homeBtn btn btn-secondary">
             Our Book Collection
           </button>
         </Link>
@@ -39,11 +36,17 @@ export class App extends Component {
     );
   };
   componentDidMount = () => {
-    this.getFiction();
+    // this.getFiction();
   };
   getFiction = () => {
-    const url = "http://localhost:4000/fiction";
-    fetch(url)
+    fetch("http://localhost:4000/fiction")
+      .then(res => res.json())
+      .then(res => {
+        this.setState({ books: res });
+      });
+  };
+  getNonfiction = () => {
+    fetch("http://localhost:4000/nonfiction")
       .then(res => res.json())
       .then(res => {
         this.setState({ books: res });
@@ -76,10 +79,12 @@ export class App extends Component {
           />
           <Route
             path="/books/:id"
+            exact
             render={routerProps => <Book {...routerProps} {...this.state} />}
           />
           <Route
             path="/ourbooks"
+            exact
             render={routerProps => (
               <OurBookList {...routerProps} {...this.state} />
             )}

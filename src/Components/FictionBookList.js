@@ -69,6 +69,8 @@ const containerStyle = {
   textAlign: "center"
 };
 const bannerStyle = {
+  display: "inline-block",
   backgroundColor: "white",
+  minWidth: "200px",
   width: "100%"
 };

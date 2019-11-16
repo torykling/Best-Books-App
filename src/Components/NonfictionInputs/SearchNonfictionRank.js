@@ -48,14 +48,19 @@ export class SearchNonfictionRank extends Component {
     }
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form className="input-group mb-3" onSubmit={this.handleSubmit}>
           <input
+            className="form-control input-group-prepend"
             type="text"
             name="rank"
-            placeholder="Search for a book by rank (from 1 to 15)"
+            placeholder="Search by rank (1-15)"
             onChange={this.handleChange}
           ></input>
-          <input type="submit" value="Search"></input>
+          <input
+            className="btn btn-secondary input-group-append"
+            type="submit"
+            value="Search"
+          ></input>
         </form>
         {searchResult}
       </div>

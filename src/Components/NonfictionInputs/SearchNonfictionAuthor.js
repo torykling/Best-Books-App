@@ -48,14 +48,19 @@ export class SearchNonfictionAuthor extends Component {
     }
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form className="input-group mb-3" onSubmit={this.handleSubmit}>
           <input
+            className="form-control input-group-prepend"
             type="text"
             name="author"
-            placeholder="Search for a book by author"
+            placeholder="Search by author"
             onChange={this.handleChange}
           ></input>
-          <input type="submit" value="Search"></input>
+          <input
+            className="btn btn-secondary input-group-append"
+            type="submit"
+            value="Search"
+          ></input>
         </form>
         {searchResult}
       </div>

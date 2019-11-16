@@ -39,7 +39,7 @@ export class OurBookList extends Component {
     }
 
     return (
-      <div>
+      <div style={textBoxStyle}>
         <h1>Our Best Books</h1>
         <h2>Books recommended by users like you!</h2>
         <h5>Add a book here</h5>
@@ -59,3 +59,11 @@ export class OurBookList extends Component {
 }
 
 export default OurBookList;
+
+const textBoxStyle = {
+  backgroundColor: "rgba(110, 117, 124, .7)",
+  color: "white",
+  margin: "0 auto",
+  padding: "2px 20px",
+  width: "80%"
+};
