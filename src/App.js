@@ -13,7 +13,7 @@ export class App extends Component {
   }
   home = () => {
     return (
-      <div>
+      <div className="buttonContainer">
         <Link to="/FictionBooks">
           <button onClick={this.getFiction} className="btn btn-outline-success">
             Fiction Bestsellers
@@ -53,7 +53,7 @@ export class App extends Component {
   render() {
     return (
       <div>
-        <nav>
+        <nav className="navbar navbar-dark bg-primary">
           <Link className="home" to="/">
             Home
           </Link>
