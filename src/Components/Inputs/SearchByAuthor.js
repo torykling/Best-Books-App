@@ -13,7 +13,7 @@ export class SearchByAuthor extends Component {
   }
   handleChange = e => {
     e.preventDefault();
-    this.setState({ author: e.target.value });
+    this.setState({ author: e.target.value.toUpperCase() });
     console.log(this.state.title);
   };
   handleSubmit = e => {

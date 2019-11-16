@@ -14,7 +14,7 @@ export class DeleteOne extends Component {
   }
   handleChange = e => {
     e.preventDefault();
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ [e.target.name]: e.target.value.toUpperCase() });
   };
   handleSubmit = e => {
     const url = "http://localhost:4000/ourbooks/title/" + this.state.titleId;

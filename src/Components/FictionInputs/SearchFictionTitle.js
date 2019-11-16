@@ -14,7 +14,7 @@ export class SearchFictionTitle extends Component {
   }
   handleChange = e => {
     e.preventDefault();
-    this.setState({ title: e.target.value });
+    this.setState({ title: e.target.value.toUpperCase() });
     console.log(this.state.title);
   };
   handleSubmit = e => {

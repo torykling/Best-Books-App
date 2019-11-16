@@ -14,7 +14,7 @@ export class Put extends Component {
   }
   handleChange = e => {
     e.preventDefault();
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ [e.target.name]: e.target.value.toUpperCase() });
     console.log(this.state.title);
     console.log(this.state.author);
   };
