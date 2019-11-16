@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import SearchFictionTitle from "./FictionInputs/SearchFictionTitle";
+import SearchFictionAuthor from "./FictionInputs/SearchFictionAuthor";
+import SearchFictionRank from "./FictionInputs/SearchFictionRank";
 
 export default function FictionBookList(props) {
   // console.log(props);
@@ -24,6 +26,8 @@ export default function FictionBookList(props) {
   return (
     <div style={containerStyle}>
       <SearchFictionTitle />
+      <SearchFictionAuthor />
+      <SearchFictionRank />
       {bookList}
     </div>
   );

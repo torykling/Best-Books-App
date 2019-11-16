@@ -1,5 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import SearchNonfictionTitle from "./NonfictionInputs/SearchNonfictionTitle";
+import SearchNonfictionAuthor from "./NonfictionInputs/SearchNonfictionAuthor";
+import SearchNonfictionRank from "./NonfictionInputs/SearchNonfictionRank";
 
 export default function NonfictionBookList(props) {
   let bookList = props.books.map(index => {
@@ -18,7 +21,14 @@ export default function NonfictionBookList(props) {
       </div>
     );
   });
-  return <div style={containerStyle}>{bookList}</div>;
+  return (
+    <div style={containerStyle}>
+      <SearchNonfictionTitle />
+      <SearchNonfictionAuthor />
+      <SearchNonfictionRank />
+      {bookList}
+    </div>
+  );
 }
 
 const containerStyle = {
