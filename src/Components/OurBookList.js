@@ -30,7 +30,7 @@ export class OurBookList extends Component {
       ourList = this.state.ourBooks.map(index => {
         return (
           <li className="list-group-item" style={resultStyle} key={index._id}>
-            Title: {index.title} Author: {index.author}
+            {index.title} written by {index.author}
           </li>
         );
       });

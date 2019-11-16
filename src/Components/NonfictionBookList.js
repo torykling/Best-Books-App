@@ -1,10 +1,9 @@
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import SearchNonfictionTitle from "./NonfictionInputs/SearchNonfictionTitle";
 import SearchNonfictionAuthor from "./NonfictionInputs/SearchNonfictionAuthor";
 import SearchNonfictionRank from "./NonfictionInputs/SearchNonfictionRank";
 import axios from "axios";
-import Book from "./Book";
-import React, { Component } from "react";
 
 export class NonfictionBookList extends Component {
   constructor(props) {

@@ -41,10 +41,14 @@ export class SearchNonfictionRank extends Component {
         };
         return (
           <div style={imageStyle} key={index._id}>
-            <Link to={`/books/${index._id}`}>{index.title}</Link>
+            <Link style={bannerStyle} to={`/books/${index._id}`}>
+              {index.title}
+            </Link>
           </div>
         );
       });
+    } else {
+      searchResult = 0;
     }
     return (
       <div>
@@ -69,3 +73,10 @@ export class SearchNonfictionRank extends Component {
 }
 
 export default SearchNonfictionRank;
+
+const bannerStyle = {
+  display: "inline-block",
+  backgroundColor: "white",
+  minWidth: "200px",
+  width: "100%"
+};

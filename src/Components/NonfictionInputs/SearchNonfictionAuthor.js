@@ -41,10 +41,14 @@ export class SearchNonfictionAuthor extends Component {
         };
         return (
           <div style={imageStyle} key={index._id}>
-            <Link to={`/books/${index._id}`}>{index.title}</Link>
+            <Link style={bannerStyle} to={`/books/${index._id}`}>
+              {index.title}
+            </Link>
           </div>
         );
       });
+    } else {
+      searchResult = "";
     }
     return (
       <div>
@@ -69,3 +73,10 @@ export class SearchNonfictionAuthor extends Component {
 }
 
 export default SearchNonfictionAuthor;
+
+const bannerStyle = {
+  display: "inline-block",
+  backgroundColor: "white",
+  minWidth: "200px",
+  width: "100%"
+};

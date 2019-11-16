@@ -13,25 +13,31 @@ export class App extends Component {
   }
   home = () => {
     return (
-      <div className="buttonContainer">
-        <Link to="/FictionBooks">
-          <button onClick={this.getFiction} className="homeBtn btn btn-success">
-            Fiction Bestsellers
-          </button>
-        </Link>
-        <Link to="/NonfictionBooks">
-          <button
-            onClick={this.getNonfiction}
-            className="homeBtn btn btn-primary"
-          >
-            Nonfiction Bestsellers
-          </button>
-        </Link>
-        <Link to="/ourbooks">
-          <button className="homeBtn btn btn-secondary">
-            Our Book Collection
-          </button>
-        </Link>
+      <div>
+        <h1 style={titleStyle}>Best Books</h1>
+        <div className="buttonContainer">
+          <Link to="/FictionBooks">
+            <button
+              onClick={this.getFiction}
+              className="homeBtn btn btn-success"
+            >
+              Fiction Bestsellers
+            </button>
+          </Link>
+          <Link to="/NonfictionBooks">
+            <button
+              onClick={this.getNonfiction}
+              className="homeBtn btn btn-primary"
+            >
+              Nonfiction Bestsellers
+            </button>
+          </Link>
+          <Link to="/ourbooks">
+            <button className="homeBtn btn btn-secondary">
+              Our Book Collection
+            </button>
+          </Link>
+        </div>
       </div>
     );
   };
@@ -91,7 +97,7 @@ export class App extends Component {
           />
         </div>
         <footer className="footer">
-          Data from API used here gathered from{" "}
+          Data from Best Books API gathered from{" "}
           <a
             className="a"
             href="https://developer.nytimes.com/docs/books-product/1/overview"
@@ -114,3 +120,11 @@ export class App extends Component {
 }
 
 export default App;
+const titleStyle = {
+  color: "white",
+  width: "80%",
+  margin: "0 auto",
+  textAlign: "center",
+  fontWeight: "bold",
+  fontSize: "100px"
+};

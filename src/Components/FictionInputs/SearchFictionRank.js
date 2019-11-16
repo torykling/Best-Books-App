@@ -12,6 +12,7 @@ export class SearchFictionRank extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
   handleChange = e => {
     e.preventDefault();
     this.setState({ rank: e.target.value });
@@ -41,10 +42,14 @@ export class SearchFictionRank extends Component {
         };
         return (
           <div style={imageStyle} key={index._id}>
-            <Link to={`/books/${index._id}`}>{index.title}</Link>
+            <Link style={bannerStyle} to={`/books/${index._id}`}>
+              {index.title}
+            </Link>
           </div>
         );
       });
+    } else {
+      searchResult = "";
     }
     return (
       <div>
@@ -69,3 +74,9 @@ export class SearchFictionRank extends Component {
 }
 
 export default SearchFictionRank;
+const bannerStyle = {
+  display: "inline-block",
+  backgroundColor: "white",
+  minWidth: "200px",
+  width: "100%"
+};
