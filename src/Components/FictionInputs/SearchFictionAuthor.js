@@ -48,15 +48,22 @@ export class SearchFictionAuthor extends Component {
     }
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            name="author"
-            placeholder="Search for a book by author"
-            onChange={this.handleChange}
-          ></input>
-          <input type="submit" value="Search"></input>
-        </form>
+        <div style={formStyle}>
+          <form className="input-group mb-3" onSubmit={this.handleSubmit}>
+            <input
+              className="form-control input-group-prepend"
+              type="text"
+              name="author"
+              placeholder="Search by author"
+              onChange={this.handleChange}
+            ></input>
+            <input
+              className="btn btn-secondary input-group-append"
+              type="submit"
+              value="Search"
+            ></input>
+          </form>
+        </div>
         {searchResult}
       </div>
     );
@@ -64,3 +71,8 @@ export class SearchFictionAuthor extends Component {
 }
 
 export default SearchFictionAuthor;
+const formStyle = {
+  width: "100%",
+  display: "flex",
+  flexDirection: "row"
+};

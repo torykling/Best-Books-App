@@ -37,16 +37,20 @@ export class FictionBookList extends Component {
         };
         return (
           <div style={imageStyle} key={index._id}>
-            <Link to={`/books/${index._id}`}>{index.title}</Link>
+            <Link style={bannerStyle} to={`/books/${index._id}`}>
+              {index.title}
+            </Link>
           </div>
         );
       });
     }
     return (
       <div style={containerStyle}>
-        <SearchFictionTitle />
-        <SearchFictionAuthor />
-        <SearchFictionRank />
+        <div style={containerStyle}>
+          <SearchFictionTitle />
+          <SearchFictionAuthor />
+          <SearchFictionRank />
+        </div>
         {bookList}
       </div>
     );
@@ -56,11 +60,15 @@ export class FictionBookList extends Component {
 export default FictionBookList;
 
 const containerStyle = {
-  width: "80%",
+  width: "100%",
   height: "300%",
   display: "flex",
   flexDirection: "row",
   flexWrap: "wrap",
-  margin: "0 auto",
+  margin: "10px",
   textAlign: "center"
+};
+const bannerStyle = {
+  backgroundColor: "white",
+  width: "100%"
 };

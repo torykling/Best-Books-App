@@ -15,14 +15,14 @@ export class App extends Component {
     return (
       <div className="buttonContainer">
         <Link to="/FictionBooks">
-          <button onClick={this.getFiction} className="btn btn-outline-success">
+          <button onClick={this.getFiction} className="homeBtn btn btn-success">
             Fiction Bestsellers
           </button>
         </Link>
         <Link to="/NonfictionBooks">
           <button
             onClick={this.getNonfiction}
-            className="btn btn-outline-primary"
+            className="homeBtn btn btn-primary"
           >
             Nonfiction Bestsellers
           </button>
@@ -30,7 +30,7 @@ export class App extends Component {
         <Link to="/ourbooks">
           <button
             onClick={this.getOurBooks}
-            className="btn btn-outline-secondary"
+            className="homeBtn btn btn-secondary"
           >
             Our Book Collection
           </button>
@@ -52,37 +52,57 @@ export class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="pageContainer">
         <nav className="navbar navbar-dark bg-primary">
           <Link className="home" to="/">
             Home
           </Link>
         </nav>
-        <Route path="/" exact render={this.home}></Route>
-        <Route
-          path="/FictionBooks"
-          exact
-          render={routerProps => (
-            <FictionBookList {...routerProps} {...this.state} />
-          )}
-        />
-        <Route
-          path="/NonfictionBooks"
-          exact
-          render={routerProps => (
-            <NonfictionBookList {...routerProps} {...this.state} />
-          )}
-        />
-        <Route
-          path="/books/:id"
-          render={routerProps => <Book {...routerProps} {...this.state} />}
-        />
-        <Route
-          path="/ourbooks"
-          render={routerProps => (
-            <OurBookList {...routerProps} {...this.state} />
-          )}
-        />
+        <div className="content-wrap">
+          <Route path="/" exact render={this.home}></Route>
+          <Route
+            path="/FictionBooks"
+            exact
+            render={routerProps => (
+              <FictionBookList {...routerProps} {...this.state} />
+            )}
+          />
+          <Route
+            path="/NonfictionBooks"
+            exact
+            render={routerProps => (
+              <NonfictionBookList {...routerProps} {...this.state} />
+            )}
+          />
+          <Route
+            path="/books/:id"
+            render={routerProps => <Book {...routerProps} {...this.state} />}
+          />
+          <Route
+            path="/ourbooks"
+            render={routerProps => (
+              <OurBookList {...routerProps} {...this.state} />
+            )}
+          />
+        </div>
+        <footer className="footer">
+          Data from API used here gathered from{" "}
+          <a
+            className="a"
+            href="https://developer.nytimes.com/docs/books-product/1/overview"
+            target="_blank"
+          >
+            NYT API
+          </a>{" "}
+          and{" "}
+          <a
+            className="a"
+            href="https://www.goodreads.com/api/index"
+            target="_blank"
+          >
+            Goodreads API
+          </a>
+        </footer>
       </div>
     );
   }
