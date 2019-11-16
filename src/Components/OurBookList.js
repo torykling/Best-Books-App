@@ -29,13 +29,17 @@ export class OurBookList extends Component {
     if (this.state.ourBooks != null) {
       ourList = this.state.ourBooks.map(index => {
         return (
-          <li key={index._id}>
+          <li className="list-group-item" style={resultStyle} key={index._id}>
             Title: {index.title} Author: {index.author}
           </li>
         );
       });
     } else {
-      ourList = <li>No titles to display</li>;
+      ourList = (
+        <li style={resultStyle} className="list-group-item">
+          No titles to display
+        </li>
+      );
     }
 
     return (
@@ -52,7 +56,7 @@ export class OurBookList extends Component {
         <h5>Search for a book on this list by title or author</h5>
         <SearchByTitle />
         <SearchByAuthor />
-        <ul>{ourList}</ul>
+        <ul className="list-group">{ourList}</ul>
       </div>
     );
   }
@@ -66,4 +70,7 @@ const textBoxStyle = {
   margin: "0 auto",
   padding: "2px 20px",
   width: "80%"
+};
+const resultStyle = {
+  color: "grey"
 };

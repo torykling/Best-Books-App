@@ -22,8 +22,12 @@ export class DeleteAll extends Component {
   };
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input type="submit" value="Delete All Books"></input>
+      <form className="input-group mb-3" onSubmit={this.handleSubmit}>
+        <input
+          className="btn btn-danger"
+          type="submit"
+          value="Delete All Books"
+        ></input>
       </form>
     );
   }

@@ -31,7 +31,7 @@ export class SearchByTitle extends Component {
     if (this.state.results != null) {
       searchResult = this.state.results.map(index => {
         return (
-          <li key={index._id}>
+          <li className="list-group-item" style={resultStyle} key={index._id}>
             Title: {index.title} Author: {index.author}
           </li>
         );
@@ -39,14 +39,19 @@ export class SearchByTitle extends Component {
     }
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form className="input-group mb-3" onSubmit={this.handleSubmit}>
           <input
+            className="form-control input-group-prepend"
             type="text"
             name="title"
-            placeholder="Search for a book title"
+            placeholder="Search by title"
             onChange={this.handleChange}
           ></input>
-          <input type="submit" value="Search"></input>
+          <input
+            className="btn btn-primary input-group-append"
+            type="submit"
+            value="Search"
+          ></input>
         </form>
         <ul>{searchResult}</ul>
       </div>
@@ -55,3 +60,7 @@ export class SearchByTitle extends Component {
 }
 
 export default SearchByTitle;
+
+const resultStyle = {
+  color: "grey"
+};

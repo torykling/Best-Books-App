@@ -32,26 +32,32 @@ export class Put extends Component {
   };
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className="input-group mb-3" onSubmit={this.handleSubmit}>
         <input
+          className="form-control"
           type="text"
           name="titleId"
-          placeholder="Add a title for the book you want to edit"
+          placeholder="Current Title"
           onChange={this.handleChange}
         ></input>
         <input
+          className="form-control"
           type="text"
           name="title"
-          placeholder="Add the updated title"
+          placeholder="New Title"
           onChange={this.handleChange}
         />
         <input
+          className="form-control input-group-prepend"
           type="text"
           name="author"
-          placeholder="Add an author"
+          placeholder="New Author"
           onChange={this.handleChange}
         ></input>
-        <input type="submit"></input>
+        <input
+          className="btn btn-primary input-group-append"
+          type="submit"
+        ></input>
       </form>
     );
   }

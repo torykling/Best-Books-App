@@ -27,14 +27,19 @@ export class DeleteOne extends Component {
   };
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className="input-group mb-3" onSubmit={this.handleSubmit}>
         <input
+          className="form-control input-group-prepend"
           type="text"
           name="titleId"
           placeholder="Add a title for the book you want to delete"
           onChange={this.handleChange}
         ></input>
-        <input type="submit" value="Delete"></input>
+        <input
+          className="btn btn-warning input-group-append"
+          type="submit"
+          value="Delete"
+        ></input>
       </form>
     );
   }

@@ -30,20 +30,25 @@ export class Post extends Component {
   };
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className="input-group mb-3" onSubmit={this.handleSubmit}>
         <input
+          className="form-control"
           type="text"
           name="title"
-          placeholder="Add a book title"
+          placeholder="Title"
           onChange={this.handleChange}
         ></input>
         <input
+          className="form-control input-group-prepend"
           type="text"
           name="author"
-          placeholder="Add an author"
+          placeholder="Author"
           onChange={this.handleChange}
         ></input>
-        <input type="submit"></input>
+        <input
+          className="btn btn-primary input-group-append"
+          type="submit"
+        ></input>
       </form>
     );
   }
