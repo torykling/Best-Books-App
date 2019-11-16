@@ -46,17 +46,6 @@ export class App extends Component {
     fetch(url)
       .then(res => res.json())
       .then(res => {
-        // console.log("success", res);
-        this.setState({ books: res });
-        // console.log(this.state.books);
-      });
-  };
-  getNonfiction = () => {
-    const nfurl = "http://localhost:4000/nonfiction";
-    fetch(nfurl)
-      .then(res => res.json())
-      .then(res => {
-        // console.log("success", res);
         this.setState({ books: res });
       });
   };
