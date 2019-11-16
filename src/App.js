@@ -40,7 +40,6 @@ export class App extends Component {
   };
   componentDidMount = () => {
     this.getFiction();
-    this.getOurBooks();
   };
   getFiction = () => {
     const url = "http://localhost:4000/fiction";
@@ -59,16 +58,6 @@ export class App extends Component {
       .then(res => {
         // console.log("success", res);
         this.setState({ books: res });
-      });
-  };
-  getOurBooks = () => {
-    const oururl = "http://localhost:4000/ourbooks";
-    fetch(oururl)
-      .then(res => res.json())
-      .then(res => {
-        console.log(res);
-        this.setState({ ourBooks: res });
-        console.log(this.state);
       });
   };
 

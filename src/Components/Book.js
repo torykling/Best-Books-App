@@ -29,6 +29,7 @@ export class Book extends Component {
         <p>Rank: #{theBook.rank}</p>
         <p>isbn: {theBook.isbn}</p>
         <iframe
+          title="Reviews from Goodreads"
           id="the_iframe"
           src={theBook.reviews}
           width="500px"

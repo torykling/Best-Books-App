@@ -1,25 +1,56 @@
-import React from "react";
+import React, { Component } from "react";
+import axios from "axios";
+import Post from "./Inputs/Post";
+import Put from "./Inputs/Put";
+import DeleteOne from "./Inputs/DeleteOne";
+import DeleteAll from "./Inputs/DeleteAll";
 
-export default function OurBookList(props) {
-  console.log(props.ourBooks);
-  let ourList = props.ourBooks.map(index => {
+export class OurBookList extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      ourBooks: props.ourBooks
+    };
+    this.getOurBooks = this.getOurBooks.bind(this);
+  }
+  getOurBooks = () => {
+    axios.get("http://localhost:4000/ourbooks").then(res => {
+      this.setState({ ourBooks: res.data });
+      console.log(this.state);
+    });
+  };
+  componentDidMount() {
+    this.getOurBooks();
+  }
+  render() {
+    let ourList;
+    if (this.state.ourBooks != null) {
+      ourList = this.state.ourBooks.map(index => {
+        return (
+          <li key={index._id}>
+            Title: {index.title} Author: {index.author}
+          </li>
+        );
+      });
+    } else {
+      ourList = <li>No titles to display</li>;
+    }
+
     return (
-      <li>
-        Title: {index.title} Author: {index.author}
-      </li>
+      <div>
+        <h1>Our Best Books</h1>
+        <h2>Books recommended by users like you!</h2>
+        <h5>Add a book here</h5>
+        <Post />
+        <h5>Or update</h5>
+        <Put />
+        <h5>Delete a book</h5>
+        <DeleteOne />
+        <DeleteAll />
+        <ul>{ourList}</ul>
+      </div>
     );
-  });
-
-  return (
-    <div>
-      <h1>Our Best Books</h1>
-      <h2>Books recommended by users like you!</h2>
-      <form>
-        <input type="text" placeholder="Add a book"></input>
-        <input type="submit"></input>
-      </form>
-
-      <ul>{ourList}</ul>
-    </div>
-  );
+  }
 }
+
+export default OurBookList;
