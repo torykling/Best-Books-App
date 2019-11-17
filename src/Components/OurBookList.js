@@ -13,17 +13,23 @@ export class OurBookList extends Component {
     this.state = {
       ourBooks: props.ourBooks
     };
+
     this.getOurBooks = this.getOurBooks.bind(this);
   }
   getOurBooks = () => {
-    axios.get("http://localhost:4000/ourbooks").then(res => {
+    axios.get("https://best-books-tkling.herokuapp.com/ourbooks").then(res => {
       this.setState({ ourBooks: res.data });
-      console.log(this.state);
+      // console.log(this.state);
     });
   };
   componentDidMount() {
+    this._isMounted = true;
     this.getOurBooks();
   }
+  componentDidUpdate() {
+    this.getOurBooks();
+  }
+
   render() {
     let ourList;
     if (this.state.ourBooks != null) {

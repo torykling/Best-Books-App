@@ -13,8 +13,9 @@ export class DeleteAll extends Component {
   }
 
   handleSubmit = e => {
+    e.preventDefault();
     axios
-      .delete("http://localhost:4000/ourbooks")
+      .delete("https://best-books-tkling.herokuapp.com/ourbooks")
       .then(res => {
         console.log(res);
       })

@@ -18,8 +18,9 @@ export class Post extends Component {
     console.log(this.state.author);
   };
   handleSubmit = e => {
+    e.preventDefault();
     axios
-      .post("http://localhost:4000/ourbooks", {
+      .post("https://best-books-tkling.herokuapp.com/ourbooks", {
         title: this.state.title,
         author: this.state.author
       })

@@ -45,14 +45,14 @@ export class App extends Component {
     // this.getFiction();
   };
   getFiction = () => {
-    fetch("http://localhost:4000/fiction")
+    fetch("https://best-books-tkling.herokuapp.com/fiction")
       .then(res => res.json())
       .then(res => {
         this.setState({ books: res });
       });
   };
   getNonfiction = () => {
-    fetch("http://localhost:4000/nonfiction")
+    fetch("https://best-books-tkling.herokuapp.com/nonfiction")
       .then(res => res.json())
       .then(res => {
         this.setState({ books: res });
@@ -102,6 +102,7 @@ export class App extends Component {
             className="a"
             href="https://developer.nytimes.com/docs/books-product/1/overview"
             target="_blank"
+            rel="noopener noreferrer"
           >
             NYT API
           </a>{" "}
@@ -110,6 +111,7 @@ export class App extends Component {
             className="a"
             href="https://www.goodreads.com/api/index"
             target="_blank"
+            rel="noopener noreferrer"
           >
             Goodreads API
           </a>

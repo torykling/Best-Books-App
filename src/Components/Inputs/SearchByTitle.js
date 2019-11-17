@@ -11,6 +11,7 @@ export class SearchByTitle extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
   handleChange = e => {
     e.preventDefault();
     this.setState({ title: e.target.value.toUpperCase() });
@@ -19,7 +20,10 @@ export class SearchByTitle extends Component {
   handleSubmit = e => {
     e.preventDefault();
     axios
-      .get("http://localhost:4000/ourbooks/title/" + this.state.title)
+      .get(
+        "https://best-books-tkling.herokuapp.com/ourbooks/title/" +
+          this.state.title
+      )
       .then(res => {
         console.log(res);
         this.setState({ results: res.data });

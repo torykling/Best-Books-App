@@ -19,7 +19,10 @@ export class SearchNonfictionRank extends Component {
   handleSubmit = e => {
     e.preventDefault();
     axios
-      .get("http://localhost:4000/nonfiction/rank/" + this.state.rank)
+      .get(
+        "https://best-books-tkling.herokuapp.com/nonfiction/rank/" +
+          this.state.rank
+      )
       .then(res => {
         console.log(res);
         this.setState({ results: res.data });
@@ -48,7 +51,7 @@ export class SearchNonfictionRank extends Component {
         );
       });
     } else {
-      searchResult = 0;
+      searchResult = "";
     }
     return (
       <div>

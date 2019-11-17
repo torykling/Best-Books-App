@@ -11,6 +11,7 @@ export class SearchByAuthor extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
   handleChange = e => {
     e.preventDefault();
     this.setState({ author: e.target.value.toUpperCase() });
@@ -19,7 +20,10 @@ export class SearchByAuthor extends Component {
   handleSubmit = e => {
     e.preventDefault();
     axios
-      .get("http://localhost:4000/ourbooks/author/" + this.state.author)
+      .get(
+        "https://best-books-tkling.herokuapp.com/ourbooks/author/" +
+          this.state.author
+      )
       .then(res => {
         console.log(res);
         this.setState({ results: res.data });
@@ -46,6 +50,7 @@ export class SearchByAuthor extends Component {
             name="author"
             placeholder="Search by author"
             onChange={this.handleChange}
+            onBlur={this.handleBlur}
           ></input>
           <input
             className="btn btn-primary input-group-append"

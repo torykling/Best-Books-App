@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 
 export class Book extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     console.log("from Book.js", this.props.match.params.id);
     console.log(this.props.books);

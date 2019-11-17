@@ -20,7 +20,10 @@ export class SearchFictionRank extends Component {
   handleSubmit = e => {
     e.preventDefault();
     axios
-      .get("http://localhost:4000/fiction/rank/" + this.state.rank)
+      .get(
+        "https://best-books-tkling.herokuapp.com/fiction/rank/" +
+          this.state.rank
+      )
       .then(res => {
         console.log(res);
         this.setState({ results: res.data });

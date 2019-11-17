@@ -19,7 +19,10 @@ export class SearchFictionAuthor extends Component {
   handleSubmit = e => {
     e.preventDefault();
     axios
-      .get("http://localhost:4000/fiction/author/" + this.state.author)
+      .get(
+        "https://best-books-tkling.herokuapp.com/fiction/author/" +
+          this.state.author
+      )
       .then(res => {
         console.log(res);
         this.setState({ results: res.data });

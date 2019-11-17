@@ -14,7 +14,7 @@ export class FictionBookList extends Component {
     this.getFiction = this.getFiction.bind(this);
   }
   getFiction() {
-    axios.get("http://localhost:4000/fiction").then(res => {
+    axios.get("https://best-books-tkling.herokuapp.com/fiction").then(res => {
       this.setState({ books: res.data });
       console.log(this.state);
     });

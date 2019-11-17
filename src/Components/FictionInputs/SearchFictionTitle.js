@@ -20,7 +20,10 @@ export class SearchFictionTitle extends Component {
   handleSubmit = e => {
     e.preventDefault();
     axios
-      .get("http://localhost:4000/fiction/title/" + this.state.title)
+      .get(
+        "https://best-books-tkling.herokuapp.com/fiction/title/" +
+          this.state.title
+      )
       .then(res => {
         console.log(res);
         this.setState({ results: res.data });

@@ -14,10 +14,12 @@ export class NonfictionBookList extends Component {
     this.getNonfiction = this.getNonfiction.bind(this);
   }
   getNonfiction() {
-    axios.get("http://localhost:4000/nonfiction").then(res => {
-      this.setState({ books: res.data });
-      console.log(this.state);
-    });
+    axios
+      .get("https://best-books-tkling.herokuapp.com/nonfiction")
+      .then(res => {
+        this.setState({ books: res.data });
+        console.log(this.state);
+      });
   }
   componentDidMount() {
     this.getNonfiction();

@@ -19,7 +19,10 @@ export class SearchNonfictionAuthor extends Component {
   handleSubmit = e => {
     e.preventDefault();
     axios
-      .get("http://localhost:4000/nonfiction/author/" + this.state.author)
+      .get(
+        "https://best-books-tkling.herokuapp.com/nonfiction/author/" +
+          this.state.author
+      )
       .then(res => {
         console.log(res);
         this.setState({ results: res.data });

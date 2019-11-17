@@ -5,19 +5,21 @@ export class DeleteOne extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      titleId: "",
-      title: "",
-      author: ""
+      titleId: ""
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
   handleChange = e => {
     e.preventDefault();
-    this.setState({ [e.target.name]: e.target.value.toUpperCase() });
+    this.setState({ titleId: e.target.value.toUpperCase() });
   };
   handleSubmit = e => {
-    const url = "http://localhost:4000/ourbooks/title/" + this.state.titleId;
+    e.preventDefault();
+    const url =
+      "https://best-books-tkling.herokuapp.com/ourbooks/title/" +
+      this.state.titleId;
     axios
       .delete(url)
       .then(res => {

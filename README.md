@@ -4,11 +4,18 @@
 ![Best Books List View](./img/booklist.png)
 ![Best Books Review](./img/review.png)
 
+## Installation
+
+Fork and clone this repository. Run npm install to install dependencies. Run npm start.
+
+## Use
+
+Click a button from the home page to explore the current fiction bestsellers, nonfiction bestsellers, and a collection of user-generated favorite books. Use any of the search fields to find a book by title, author, or rank. In the "Our Book Collection" page, use the input fields to add, edit, search, and delete books from this collection in the bestBooks API.
+
 ## Technologies Used
 
 - React
 - bestBooks API
-- Node.js
 
 ## Contribute
 

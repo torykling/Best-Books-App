@@ -19,7 +19,10 @@ export class Put extends Component {
     console.log(this.state.author);
   };
   handleSubmit = e => {
-    const url = "http://localhost:4000/ourbooks/title/" + this.state.titleId;
+    e.preventDefault();
+    const url =
+      "https://best-books-tkling.herokuapp.com/ourbooks/title/" +
+      this.state.titleId;
     axios
       .put(url, {
         title: this.state.title,
