@@ -6,6 +6,7 @@ import DeleteOne from "./Inputs/DeleteOne";
 import DeleteAll from "./Inputs/DeleteAll";
 import SearchByTitle from "./Inputs/SearchByTitle";
 import SearchByAuthor from "./Inputs/SearchByAuthor";
+import Clear from "./Inputs/Clear";
 
 export class OurBookList extends Component {
   constructor(props) {
@@ -15,19 +16,27 @@ export class OurBookList extends Component {
     };
 
     this.getOurBooks = this.getOurBooks.bind(this);
+    this.myController = new AbortController();
   }
+
   getOurBooks = () => {
-    axios.get("https://best-books-tkling.herokuapp.com/ourbooks").then(res => {
-      this.setState({ ourBooks: res.data });
-      // console.log(this.state);
-    });
+    axios
+      .get("https://best-books-tkling.herokuapp.com/ourbooks", {
+        signal: this.myController.signal
+      })
+      .then(res => {
+        this.setState({ ourBooks: res.data });
+      })
+      .catch(err => console.log(err));
   };
   componentDidMount() {
-    this._isMounted = true;
     this.getOurBooks();
   }
   componentDidUpdate() {
     this.getOurBooks();
+  }
+  componentWillUnmount() {
+    this.myController.abort();
   }
 
   render() {
@@ -52,13 +61,16 @@ export class OurBookList extends Component {
       <div style={textBoxStyle}>
         <h1>Our Best Books</h1>
         <h2>Books recommended by users like you!</h2>
+        <Clear />
         <h5>Add a book here</h5>
         <Post />
         <h5>Or update a book</h5>
         <Put />
         <h5>Delete a book</h5>
         <DeleteOne />
+
         <DeleteAll />
+
         <h5>Search for a book on this list by title or author</h5>
         <SearchByTitle />
         <SearchByAuthor />

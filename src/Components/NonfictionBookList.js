@@ -68,7 +68,9 @@ const containerStyle = {
   flexDirection: "row",
   flexWrap: "wrap",
   margin: "10px",
-  textAlign: "center"
+  textAlign: "center",
+  alignItems: "center",
+  justifyContent: "center"
 };
 const bannerStyle = {
   display: "inline-block",

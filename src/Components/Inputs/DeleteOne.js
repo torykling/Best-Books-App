@@ -34,7 +34,7 @@ export class DeleteOne extends Component {
           className="form-control input-group-prepend"
           type="text"
           name="titleId"
-          placeholder="Add a title for the book you want to delete"
+          placeholder="Delete this title"
           onChange={this.handleChange}
         ></input>
         <input

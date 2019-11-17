@@ -17,7 +17,8 @@ export class Book extends Component {
       backgroundRepeat: "no-repeat",
       backgroundPosition: "center",
       height: "500px",
-      width: "300px",
+      width: "100%",
+      maxWidth: "300px",
       margin: "10px auto"
     };
     return (
@@ -35,8 +36,8 @@ export class Book extends Component {
             title="Reviews from Goodreads"
             id="the_iframe"
             src={theBook.reviews}
-            width="500px"
-            height="300px"
+            width="100%"
+            height="60%"
             frameBorder="2px solid black"
           ></iframe>
         </div>
@@ -55,5 +56,5 @@ const textBoxStyle = {
   backgroundColor: "rgba(110, 117, 124, .7)",
   margin: "0 auto",
   padding: "2px 20px",
-  width: "80%"
+  width: "90%"
 };
