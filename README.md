@@ -22,3 +22,5 @@ Click a button from the home page to explore the current fiction bestsellers, no
 - Source code: https://github.com/torykling/Best-Books-App
 - Issues: https://github.com/torykling/Best-Books-App/issues
 - Source code for bestBooks API: https://github.com/torykling/Best-Books
+
+- See deployed version at: https://elastic-lalande-528edc.netlify.com
