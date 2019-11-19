@@ -24,6 +24,7 @@ export class DeleteOne extends Component {
       .delete(url)
       .then(res => {
         console.log(res);
+        this.props.getData();
       })
       .catch(err => console.log(err));
   };

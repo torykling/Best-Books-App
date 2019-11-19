@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 
-export class Book extends Component {
+export class Nonfiction extends Component {
   render() {
-    console.log("from Book.js", this.props.match.params.id);
-    console.log(this.props.books);
+    console.log("from fiction.js", this.props.match.params.id);
+    console.log(this.props.nonfiction);
     let theBook;
-    this.props.books.forEach(book => {
+    this.props.nonfiction.forEach(book => {
       if (book._id === this.props.match.params.id) {
         theBook = book;
         console.log(theBook);
@@ -46,7 +46,7 @@ export class Book extends Component {
   }
 }
 
-export default Book;
+export default Nonfiction;
 
 const bookContainerStyle = {
   textAlign: "center",

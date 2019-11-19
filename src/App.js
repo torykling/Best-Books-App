@@ -3,13 +3,16 @@ import "./App.css";
 import { Route, Link } from "react-router-dom";
 import FictionBookList from "./Components/FictionBookList";
 import NonfictionBookList from "./Components/NonfictionBookList";
-import Book from "./Components/Book";
+import Nonfiction from "./Components/Nonfiction";
+import Fiction from "./Components/Fiction";
 import OurBookList from "./Components/OurBookList";
+import axios from "axios";
 
 export class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { books: null, ourBooks: null };
+    this.state = { fiction: null, nonfiction: null, ourBooks: null };
+    this.getData = this.getData.bind(this);
   }
   home = () => {
     return (
@@ -42,21 +45,20 @@ export class App extends Component {
     );
   };
   componentDidMount = () => {
-    // this.getFiction();
+    this.getData();
   };
-  getFiction = () => {
-    fetch("https://best-books-tkling.herokuapp.com/fiction")
-      .then(res => res.json())
+  getData = () => {
+    axios.get("https://best-books-tkling.herokuapp.com/fiction").then(res => {
+      this.setState({ fiction: res.data });
+    });
+    axios
+      .get("https://best-books-tkling.herokuapp.com/nonfiction")
       .then(res => {
-        this.setState({ books: res });
+        this.setState({ nonfiction: res.data });
       });
-  };
-  getNonfiction = () => {
-    fetch("https://best-books-tkling.herokuapp.com/nonfiction")
-      .then(res => res.json())
-      .then(res => {
-        this.setState({ books: res });
-      });
+    axios.get("https://best-books-tkling.herokuapp.com/ourbooks").then(res => {
+      this.setState({ ourBooks: res.data });
+    });
   };
 
   render() {
@@ -73,26 +75,55 @@ export class App extends Component {
             path="/FictionBooks"
             exact
             render={routerProps => (
-              <FictionBookList {...routerProps} {...this.state} />
+              <FictionBookList
+                getData={this.getData}
+                {...routerProps}
+                {...this.state}
+              />
             )}
           />
           <Route
             path="/NonfictionBooks"
             exact
             render={routerProps => (
-              <NonfictionBookList {...routerProps} {...this.state} />
+              <NonfictionBookList
+                getData={this.getData}
+                {...routerProps}
+                {...this.state}
+              />
             )}
           />
           <Route
-            path="/books/:id"
+            path="/nonfiction/:id"
             exact
-            render={routerProps => <Book {...routerProps} {...this.state} />}
+            render={routerProps => (
+              <Nonfiction
+                getData={this.getData}
+                {...routerProps}
+                {...this.state}
+              />
+            )}
+          />
+          <Route
+            path="/fiction/:id"
+            exact
+            render={routerProps => (
+              <Fiction
+                getData={this.getData}
+                {...routerProps}
+                {...this.state}
+              />
+            )}
           />
           <Route
             path="/ourbooks"
             exact
             render={routerProps => (
-              <OurBookList {...routerProps} {...this.state} />
+              <OurBookList
+                getData={this.getData}
+                {...routerProps}
+                {...this.state}
+              />
             )}
           />
         </div>

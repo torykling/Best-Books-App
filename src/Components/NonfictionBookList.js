@@ -3,31 +3,12 @@ import { Link } from "react-router-dom";
 import SearchNonfictionTitle from "./NonfictionInputs/SearchNonfictionTitle";
 import SearchNonfictionAuthor from "./NonfictionInputs/SearchNonfictionAuthor";
 import SearchNonfictionRank from "./NonfictionInputs/SearchNonfictionRank";
-import axios from "axios";
 
 export class NonfictionBookList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      books: props.books
-    };
-    this.getNonfiction = this.getNonfiction.bind(this);
-  }
-  getNonfiction() {
-    axios
-      .get("https://best-books-tkling.herokuapp.com/nonfiction")
-      .then(res => {
-        this.setState({ books: res.data });
-        console.log(this.state);
-      });
-  }
-  componentDidMount() {
-    this.getNonfiction();
-  }
   render() {
     let bookList;
-    if (this.state.books != null) {
-      bookList = this.state.books.map(index => {
+    if (this.props.nonfiction != null) {
+      bookList = this.props.nonfiction.map(index => {
         let imageStyle = {
           backgroundImage: `url(${index.bookImage})`,
           backgroundSize: "cover",
@@ -39,7 +20,7 @@ export class NonfictionBookList extends Component {
         };
         return (
           <div style={imageStyle} key={index._id}>
-            <Link style={bannerStyle} to={`/books/${index._id}`}>
+            <Link style={bannerStyle} to={`/nonfiction/${index._id}`}>
               {index.title}
             </Link>
           </div>
