@@ -17,6 +17,7 @@ export class SearchFictionRank extends Component {
     e.preventDefault();
     this.setState({ rank: e.target.value });
   };
+
   handleSubmit = e => {
     e.preventDefault();
     axios
@@ -30,6 +31,7 @@ export class SearchFictionRank extends Component {
       })
       .catch(err => console.log(err));
   };
+
   render() {
     let searchResult;
     if (this.state.results != null) {

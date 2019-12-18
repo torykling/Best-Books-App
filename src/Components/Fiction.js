@@ -2,15 +2,13 @@ import React, { Component } from "react";
 
 export class Fiction extends Component {
   render() {
-    console.log("from fiction.js", this.props.match.params.id);
-    console.log(this.props.fiction);
     let theBook;
     this.props.fiction.forEach(book => {
       if (book._id === this.props.match.params.id) {
         theBook = book;
-        console.log(theBook);
       }
     });
+
     let divStyle = {
       backgroundImage: `url(${theBook.bookImage})`,
       backgroundSize: "cover",
@@ -21,6 +19,7 @@ export class Fiction extends Component {
       maxWidth: "300px",
       margin: "10px auto"
     };
+
     return (
       <div style={bookContainerStyle}>
         <div style={textBoxStyle}>
@@ -52,6 +51,7 @@ const bookContainerStyle = {
   textAlign: "center",
   color: "white"
 };
+
 const textBoxStyle = {
   backgroundColor: "rgba(110, 117, 124, .7)",
   margin: "0 auto",

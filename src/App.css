@@ -22,6 +22,14 @@ body {
 .homeBtn {
   margin: 10px;
 }
+.title {
+  color: white;
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: bold;
+  font-size: 100px;
+}
 .footer {
   color: white;
   position: absolute;

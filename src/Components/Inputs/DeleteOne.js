@@ -15,6 +15,7 @@ export class DeleteOne extends Component {
     e.preventDefault();
     this.setState({ titleId: e.target.value.toUpperCase() });
   };
+
   handleSubmit = e => {
     e.preventDefault();
     const url =
@@ -28,6 +29,7 @@ export class DeleteOne extends Component {
       })
       .catch(err => console.log(err));
   };
+
   render() {
     return (
       <form className="input-group mb-3" onSubmit={this.handleSubmit}>

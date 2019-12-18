@@ -22,6 +22,7 @@ export class DeleteAll extends Component {
       })
       .catch(err => console.log(err));
   };
+
   render() {
     return (
       <form className="input-group mb-3" onSubmit={this.handleSubmit}>

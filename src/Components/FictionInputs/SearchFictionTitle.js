@@ -12,11 +12,12 @@ export class SearchFictionTitle extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
   handleChange = e => {
     e.preventDefault();
     this.setState({ title: e.target.value.toUpperCase() });
-    console.log(this.state.title);
   };
+
   handleSubmit = e => {
     e.preventDefault();
     axios
@@ -30,6 +31,7 @@ export class SearchFictionTitle extends Component {
       })
       .catch(err => console.log(err));
   };
+
   render() {
     let searchResult;
     if (this.state.results != null) {

@@ -12,12 +12,12 @@ export class Put extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
   handleChange = e => {
     e.preventDefault();
     this.setState({ [e.target.name]: e.target.value.toUpperCase() });
-    console.log(this.state.title);
-    console.log(this.state.author);
   };
+
   handleSubmit = e => {
     e.preventDefault();
     const url =
@@ -34,6 +34,7 @@ export class Put extends Component {
       })
       .catch(err => console.log(err));
   };
+
   render() {
     return (
       <form className="input-group mb-3" onSubmit={this.handleSubmit}>

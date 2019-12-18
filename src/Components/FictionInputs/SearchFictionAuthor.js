@@ -16,6 +16,7 @@ export class SearchFictionAuthor extends Component {
     e.preventDefault();
     this.setState({ author: e.target.value });
   };
+
   handleSubmit = e => {
     e.preventDefault();
     axios
@@ -29,6 +30,7 @@ export class SearchFictionAuthor extends Component {
       })
       .catch(err => console.log(err));
   };
+
   render() {
     let searchResult;
     if (this.state.results != null) {

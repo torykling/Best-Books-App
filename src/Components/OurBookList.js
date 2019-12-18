@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import axios from "axios";
 import Post from "./Inputs/Post";
 import Put from "./Inputs/Put";
 import DeleteOne from "./Inputs/DeleteOne";

@@ -53,6 +53,7 @@ const containerStyle = {
   alignItems: "center",
   justifyContent: "center"
 };
+
 const bannerStyle = {
   display: "inline-block",
   backgroundColor: "white",

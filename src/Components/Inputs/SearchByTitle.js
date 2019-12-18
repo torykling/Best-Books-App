@@ -15,8 +15,8 @@ export class SearchByTitle extends Component {
   handleChange = e => {
     e.preventDefault();
     this.setState({ title: e.target.value.toUpperCase() });
-    console.log(this.state.title);
   };
+
   handleSubmit = e => {
     e.preventDefault();
     axios
@@ -30,6 +30,7 @@ export class SearchByTitle extends Component {
       })
       .catch(err => console.log(err));
   };
+
   render() {
     let searchResult;
     if (this.state.results != null) {

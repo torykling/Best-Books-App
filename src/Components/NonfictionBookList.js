@@ -18,6 +18,7 @@ export class NonfictionBookList extends Component {
           width: "200px",
           margin: "10px"
         };
+
         return (
           <div style={imageStyle} key={index._id}>
             <Link style={bannerStyle} to={`/nonfiction/${index._id}`}>
@@ -27,6 +28,7 @@ export class NonfictionBookList extends Component {
         );
       });
     }
+
     return (
       <div style={containerStyle}>
         <div style={containerStyle}>

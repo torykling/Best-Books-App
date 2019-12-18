@@ -14,24 +14,17 @@ export class App extends Component {
     this.state = { fiction: null, nonfiction: null, ourBooks: null };
     this.getData = this.getData.bind(this);
   }
+
   home = () => {
     return (
       <div>
-        <h1 style={titleStyle}>Best Books</h1>
+        <h1 className="title">Best Books</h1>
         <div className="buttonContainer">
-          <Link to="/FictionBooks">
-            <button
-              onClick={this.getFiction}
-              className="homeBtn btn btn-success"
-            >
-              Fiction Bestsellers
-            </button>
+          <Link className="homeBtn btn btn-success" to="/FictionBooks">
+            Fiction Bestsellers
           </Link>
           <Link to="/NonfictionBooks">
-            <button
-              onClick={this.getNonfiction}
-              className="homeBtn btn btn-primary"
-            >
+            <button className="homeBtn btn btn-primary">
               Nonfiction Bestsellers
             </button>
           </Link>
@@ -44,9 +37,11 @@ export class App extends Component {
       </div>
     );
   };
+
   componentDidMount = () => {
     this.getData();
   };
+
   getData = () => {
     axios.get("https://best-books-tkling.herokuapp.com/fiction").then(res => {
       this.setState({ fiction: res.data });
@@ -153,11 +148,3 @@ export class App extends Component {
 }
 
 export default App;
-const titleStyle = {
-  color: "white",
-  width: "80%",
-  margin: "0 auto",
-  textAlign: "center",
-  fontWeight: "bold",
-  fontSize: "100px"
-};
