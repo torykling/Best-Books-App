@@ -44,7 +44,7 @@ export class SearchNonfictionAuthor extends Component {
         };
         return (
           <div style={imageStyle} key={index._id}>
-            <Link style={bannerStyle} to={`/books/${index._id}`}>
+            <Link style={bannerStyle} to={`/nonfiction/${index._id}`}>
               {index.title}
             </Link>
           </div>

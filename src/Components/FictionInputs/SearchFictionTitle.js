@@ -47,7 +47,7 @@ export class SearchFictionTitle extends Component {
         };
         return (
           <div style={imageStyle} key={index._id}>
-            <Link style={bannerStyle} to={`/books/${index._id}`}>
+            <Link style={bannerStyle} to={`/fiction/${index._id}`}>
               {index.title}
             </Link>
           </div>
