@@ -30,7 +30,7 @@ export class App extends Component {
           </Link>
           <Link to="/ourbooks">
             <button className="homeBtn btn btn-secondary">
-              Our Book Collection
+              Recommended Books
             </button>
           </Link>
         </div>

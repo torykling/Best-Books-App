@@ -3,8 +3,6 @@ import Post from "./Inputs/Post";
 import Put from "./Inputs/Put";
 import DeleteOne from "./Inputs/DeleteOne";
 import DeleteAll from "./Inputs/DeleteAll";
-import SearchByTitle from "./Inputs/SearchByTitle";
-import SearchByAuthor from "./Inputs/SearchByAuthor";
 
 export class OurBookList extends Component {
   render() {
@@ -27,8 +25,7 @@ export class OurBookList extends Component {
 
     return (
       <div style={textBoxStyle}>
-        <h1>Our Best Books</h1>
-        <h2>Books recommended by users like you!</h2>
+        <h5>Books Recommended by Users Like You!</h5>
 
         <h5>Add a book here</h5>
         <Post getData={this.props.getData} />
@@ -39,9 +36,7 @@ export class OurBookList extends Component {
 
         <DeleteAll getData={this.props.getData} />
 
-        <h5>Search for a book on this list by title or author</h5>
-        <SearchByTitle />
-        <SearchByAuthor />
+        <h2 className="our-books-title">Books We Love:</h2>
         <ul className="list-group">{ourList}</ul>
       </div>
     );

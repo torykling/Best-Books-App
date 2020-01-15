@@ -59,10 +59,20 @@ body {
   padding-bottom: 2.5rem;
   margin: 0;
 }
+.resultContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+.our-books-title {
+  font-size: 6rem;
+}
 
 @media only screen and (max-width: 600px) {
   .homeBtn {
     padding: 5px 10px;
     font-size: 15px;
+  }
+  .our-books-title {
+    font-size: 4rem;
   }
 }
