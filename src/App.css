@@ -72,7 +72,7 @@ body {
 .result {
   color: gray;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .ourbuttons {
   width: 60%;
