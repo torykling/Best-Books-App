@@ -6,12 +6,13 @@ import NonfictionBookList from "./Components/NonfictionBookList";
 import Nonfiction from "./Components/Nonfiction";
 import Fiction from "./Components/Fiction";
 import OurBookList from "./Components/OurBookList";
+import AddUpdate from "./Components/AddUpdate";
 import axios from "axios";
 
 export class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { fiction: null, nonfiction: null, ourBooks: null };
+    this.state = { fiction: null, nonfiction: null, ourBooks: [] };
     this.getData = this.getData.bind(this);
   }
 
@@ -115,6 +116,17 @@ export class App extends Component {
             exact
             render={routerProps => (
               <OurBookList
+                getData={this.getData}
+                {...routerProps}
+                {...this.state}
+              />
+            )}
+          />
+          <Route
+            path="/addupdate"
+            exact
+            render={routerProps => (
+              <AddUpdate
                 getData={this.getData}
                 {...routerProps}
                 {...this.state}

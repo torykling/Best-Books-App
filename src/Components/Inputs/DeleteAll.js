@@ -2,16 +2,6 @@ import React, { Component } from "react";
 import axios from "axios";
 
 export class DeleteAll extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      titleId: "",
-      title: "",
-      author: ""
-    };
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
   handleSubmit = e => {
     e.preventDefault();
     axios

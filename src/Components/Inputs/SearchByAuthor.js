@@ -8,8 +8,6 @@ export class SearchByAuthor extends Component {
       author: "",
       results: null
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange = e => {

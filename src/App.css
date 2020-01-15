@@ -65,6 +65,24 @@ body {
 }
 .our-books-title {
   font-size: 6rem;
+  margin: 0 auto;
+  align-self: center;
+  text-align: center;
+}
+.result {
+  color: gray;
+  display: flex;
+  justify-content: space-around;
+}
+.ourbuttons {
+  width: 60%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+.addupdate {
+  width: 80%;
+  margin: 0 auto;
 }
 
 @media only screen and (max-width: 600px) {
@@ -74,5 +92,13 @@ body {
   }
   .our-books-title {
     font-size: 4rem;
+  }
+  .put-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .form-control.put-input {
+    width: 100%;
+    border-radius: 0px;
   }
 }

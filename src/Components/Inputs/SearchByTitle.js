@@ -8,8 +8,6 @@ export class SearchByTitle extends Component {
       title: "",
       results: null
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange = e => {

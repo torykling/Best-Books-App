@@ -36,7 +36,7 @@ export class Fiction extends Component {
             id="the_iframe"
             src={theBook.reviews}
             width="100%"
-            height="60%"
+            height="600px"
             frameBorder="2px solid black"
           ></iframe>
         </div>

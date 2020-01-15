@@ -9,8 +9,6 @@ export class Put extends Component {
       title: "",
       author: ""
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange = e => {
@@ -31,29 +29,33 @@ export class Put extends Component {
       .then(res => {
         console.log(res);
         this.props.getData();
+        this.props.history.push("/ourbooks");
       })
       .catch(err => console.log(err));
   };
 
   render() {
     return (
-      <form className="input-group mb-3" onSubmit={this.handleSubmit}>
+      <form
+        className="input-group mb-3 put-container"
+        onSubmit={this.handleSubmit}
+      >
         <input
-          className="form-control"
+          className="form-control put-input"
           type="text"
           name="titleId"
           placeholder="Current Title"
           onChange={this.handleChange}
         ></input>
         <input
-          className="form-control"
+          className="form-control put-input"
           type="text"
           name="title"
           placeholder="New Title"
           onChange={this.handleChange}
         />
         <input
-          className="form-control input-group-prepend"
+          className="form-control input-group-prepend put-input"
           type="text"
           name="author"
           placeholder="New Author"

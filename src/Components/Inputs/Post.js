@@ -8,8 +8,6 @@ export class Post extends Component {
       title: "",
       author: ""
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange = e => {
@@ -28,6 +26,7 @@ export class Post extends Component {
         console.log(res);
         this.props.getData();
       })
+      .then(this.props.history.push("/ourbooks"))
       .catch(err => console.log(err));
   };
 
