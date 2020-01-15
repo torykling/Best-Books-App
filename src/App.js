@@ -24,15 +24,11 @@ export class App extends Component {
           <Link className="homeBtn btn btn-success" to="/FictionBooks">
             Fiction Bestsellers
           </Link>
-          <Link to="/NonfictionBooks">
-            <button className="homeBtn btn btn-primary">
-              Nonfiction Bestsellers
-            </button>
+          <Link className="homeBtn btn btn-primary" to="/NonfictionBooks">
+            Nonfiction Bestsellers
           </Link>
-          <Link to="/ourbooks">
-            <button className="homeBtn btn btn-secondary">
-              Recommended Books
-            </button>
+          <Link className="homeBtn btn btn-secondary" to="/ourbooks">
+            Recommended Books
           </Link>
         </div>
       </div>
@@ -61,9 +57,16 @@ export class App extends Component {
     return (
       <div className="pageContainer">
         <nav className="navbar navbar-dark bg-primary">
-          <Link className="home" to="/">
+          <Link className="navlink" to="/">
             Home
           </Link>
+          <Link className="navlink" to="/FictionBooks">
+            Fiction
+          </Link>
+          <Link className="navlink" to="/NonfictionBooks">
+            Nonfiction
+          </Link>
+          <Link className="navlink heart" to="/ourbooks"></Link>
         </nav>
         <div className="content-wrap">
           <Route path="/" exact render={this.home}></Route>

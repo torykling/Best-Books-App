@@ -1,8 +1,5 @@
 import React, { Component } from "react";
-// import Post from "./Inputs/Post";
-// import Put from "./Inputs/Put";
-import DeleteOne from "./Inputs/DeleteOne";
-import DeleteAll from "./Inputs/DeleteAll";
+import DeleteOne from "./OurBookInputs/DeleteOne";
 import { Link } from "react-router-dom";
 
 export class OurBookList extends Component {
@@ -28,7 +25,6 @@ export class OurBookList extends Component {
         <h2 className="our-books-title">Books We Love:</h2>
         <ul className="list-group">{ourList}</ul>
         <div className="ourbuttons">
-          <DeleteAll getData={this.props.getData} />
           <Link className="btn btn-success" to="/addupdate">
             Add Or Update a Book
           </Link>

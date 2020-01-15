@@ -66,7 +66,7 @@ export class FictionBookList extends Component {
         };
         return (
           <div style={imageStyle} key={index._id}>
-            <Link style={bannerStyle} to={`/fiction/${index._id}`}>
+            <Link className="banner" to={`/fiction/${index._id}`}>
               {index.title}
             </Link>
           </div>
@@ -98,11 +98,4 @@ const containerStyle = {
   textAlign: "center",
   alignItems: "center",
   justifyContent: "center"
-};
-
-const bannerStyle = {
-  display: "inline-block",
-  backgroundColor: "white",
-  minWidth: "200px",
-  width: "100%"
 };

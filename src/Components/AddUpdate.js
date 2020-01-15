@@ -1,6 +1,6 @@
 import React from "react";
-import Post from "./Inputs/Post";
-import Put from "./Inputs/Put";
+import Post from "./OurBookInputs/Post";
+import Put from "./OurBookInputs/Put";
 
 export default function AddUpdate(props) {
   return (
