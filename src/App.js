@@ -6,7 +6,8 @@ import NonfictionBookList from "./Components/NonfictionBookList";
 import Nonfiction from "./Components/Nonfiction";
 import Fiction from "./Components/Fiction";
 import OurBookList from "./Components/OurBookList";
-import AddUpdate from "./Components/AddUpdate";
+import AddPage from "./Components/AddPage";
+import UpdatePage from "./Components/UpdatePage";
 import axios from "axios";
 
 export class App extends Component {
@@ -126,10 +127,21 @@ export class App extends Component {
             )}
           />
           <Route
-            path="/addupdate"
+            path="/addpage"
             exact
             render={routerProps => (
-              <AddUpdate
+              <AddPage
+                getData={this.getData}
+                {...routerProps}
+                {...this.state}
+              />
+            )}
+          />
+          <Route
+            path="/updatepage/:titleId"
+            exact
+            render={routerProps => (
+              <UpdatePage
                 getData={this.getData}
                 {...routerProps}
                 {...this.state}

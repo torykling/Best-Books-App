@@ -10,7 +10,15 @@ export class OurBookList extends Component {
         return (
           <li className="list-group-item result" key={index._id}>
             {index.title} written by {index.author}
-            <DeleteOne getData={this.props.getData} title={index.title} />
+            <div className="ourbuttons">
+              <Link
+                className="btn btn-primary updatebutton"
+                to={`/updatepage/${index.title}`}
+              >
+                Update
+              </Link>
+              <DeleteOne getData={this.props.getData} title={index.title} />
+            </div>
           </li>
         );
       });
@@ -24,11 +32,10 @@ export class OurBookList extends Component {
       <div style={textBoxStyle}>
         <h2 className="our-books-title">Books We Love:</h2>
         <ul className="list-group">{ourList}</ul>
-        <div className="ourbuttons">
-          <Link className="btn btn-success" to="/addupdate">
-            Add Or Update a Book
-          </Link>
-        </div>
+
+        <Link className="btn btn-success addbutton" to="/addpage">
+          Add a Book
+        </Link>
       </div>
     );
   }

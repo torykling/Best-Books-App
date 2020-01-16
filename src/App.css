@@ -99,10 +99,24 @@ a:hover {
   justify-content: space-between;
 }
 .ourbuttons {
-  width: 60%;
-  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+}
+.addbutton {
+  font-size: 2rem;
+  width: 50%;
+  margin: 10px auto;
   display: flex;
   justify-content: center;
+}
+.updatebutton,
+.deletebutton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 50px;
+  max-width: 70px;
+  margin: 10px;
 }
 .addupdate {
   width: 80%;
@@ -110,7 +124,14 @@ a:hover {
   background-color: rgba(110, 117, 124, 0.7);
   padding: 2px 20px;
 }
-
+iframe {
+  padding: 15px;
+  background-color: white;
+}
+.message {
+  color: white;
+  text-align: center;
+}
 @media only screen and (max-width: 600px) {
   .homeBtn {
     padding: 5px 10px;
@@ -129,5 +150,24 @@ a:hover {
   }
   .title {
     font-size: 60px;
+  }
+  .ourbuttons {
+    flex-direction: column;
+  }
+  .addbutton {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 340px) {
+  .deletebutton,
+  .updatebutton {
+    max-width: 60px;
+  }
+  .result {
+    font-size: 12px;
+  }
+  .navlink {
+    font-size: 18px;
   }
 }

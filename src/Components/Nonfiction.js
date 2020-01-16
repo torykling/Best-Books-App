@@ -37,7 +37,7 @@ export class Nonfiction extends Component {
             src={theBook.reviews}
             width="100%"
             height="600px"
-            frameBorder="2px solid black"
+            frameBorder="10px solid white"
           ></iframe>
         </div>
       </div>

@@ -6,13 +6,14 @@ export class Post extends Component {
     super(props);
     this.state = {
       title: "",
-      author: ""
+      author: "",
+      message: ""
     };
   }
 
   handleChange = e => {
     e.preventDefault();
-    this.setState({ [e.target.name]: e.target.value.toUpperCase() });
+    this.setState({ [e.target.name]: e.target.value.toUpperCase().trim() });
   };
 
   handleSubmit = e => {
@@ -25,33 +26,37 @@ export class Post extends Component {
       .then(res => {
         console.log(res);
         this.props.getData();
+        this.setState({ message: "Book added!" });
       })
-      .then(this.props.history.push("/ourbooks"))
+
       .catch(err => console.log(err));
   };
 
   render() {
     return (
-      <form className="input-group mb-3" onSubmit={this.handleSubmit}>
-        <input
-          className="form-control"
-          type="text"
-          name="title"
-          placeholder="Title"
-          onChange={this.handleChange}
-        ></input>
-        <input
-          className="form-control input-group-prepend"
-          type="text"
-          name="author"
-          placeholder="Author"
-          onChange={this.handleChange}
-        ></input>
-        <input
-          className="btn btn-primary input-group-append"
-          type="submit"
-        ></input>
-      </form>
+      <div>
+        <form className="input-group mb-3" onSubmit={this.handleSubmit}>
+          <input
+            className="form-control"
+            type="text"
+            name="title"
+            placeholder="Title"
+            onChange={this.handleChange}
+          ></input>
+          <input
+            className="form-control input-group-prepend"
+            type="text"
+            name="author"
+            placeholder="Author"
+            onChange={this.handleChange}
+          ></input>
+          <input
+            className="btn btn-primary input-group-append"
+            type="submit"
+          ></input>
+        </form>
+        <p className="message">{this.state.message}</p>
+      </div>
     );
   }
 }

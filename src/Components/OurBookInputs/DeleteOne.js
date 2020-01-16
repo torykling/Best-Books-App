@@ -17,7 +17,7 @@ export class DeleteOne extends Component {
   render() {
     return (
       <button
-        className="btn btn-warning"
+        className="btn btn-warning deletebutton"
         onClick={() => {
           this.delete(this.props.title);
         }}
