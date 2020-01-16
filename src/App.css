@@ -140,11 +140,13 @@ iframe {
   .our-books-title {
     font-size: 4rem;
   }
-  .put-container {
+  .put-container,
+  .post-container {
     display: flex;
     flex-direction: column;
   }
-  .form-control.put-input {
+  .form-control.put-input,
+  .form-control.post-input {
     width: 100%;
     border-radius: 0px;
   }

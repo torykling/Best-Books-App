@@ -35,16 +35,19 @@ export class Post extends Component {
   render() {
     return (
       <div>
-        <form className="input-group mb-3" onSubmit={this.handleSubmit}>
+        <form
+          className="input-group mb-3 post-container"
+          onSubmit={this.handleSubmit}
+        >
           <input
-            className="form-control"
+            className="form-control post-input"
             type="text"
             name="title"
             placeholder="Title"
             onChange={this.handleChange}
           ></input>
           <input
-            className="form-control input-group-prepend"
+            className="form-control input-group-prepend post-input"
             type="text"
             name="author"
             placeholder="Author"
